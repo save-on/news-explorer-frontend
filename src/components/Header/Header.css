@@ -1,0 +1,21 @@
+.header {
+  background-image: url(../../assets/georgia-de-lotz--UsJoNxLaNo-unsplash.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 0 0 88px;
+}
+
+.header__title {
+  font-size: 60px;
+  color: #fff;
+  max-width: 608px;
+  margin: 80px auto 0;
+}
+
+.header__subtitle {
+  font-size: 18px;
+  color: #fff;
+  max-width: 608px;
+  margin: 32px auto 88px;
+}
