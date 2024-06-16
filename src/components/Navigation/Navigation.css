@@ -12,7 +12,8 @@
   /* font-family: "Roboto Slab"; */
   font-weight: 700;
   font-size: 20px;
-  color: #ffffff;
+  color: #fff;
+  cursor: pointer;
 }
 
 .nav-bar__content {

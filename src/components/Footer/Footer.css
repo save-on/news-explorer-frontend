@@ -1,0 +1,48 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 104px;
+}
+
+.footer__copyright {
+  color: #b6bcbf;
+}
+
+.footer__info-list {
+  display: flex;
+  list-style-type: none;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+}
+
+.footer__home-btn {
+  border: none;
+  background: none;
+  font-size: 18px;
+  margin: 0 40px 0 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+.footer__tripleten-btn {
+  border: none;
+  background: none;
+  font-size: 18px;
+  margin: 0 40px 0 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+.footer__github {
+  max-width: 24px;
+  min-height: 24px;
+  margin: 0 24px 0 0;
+  cursor: pointer;
+}
+
+.footer__facebook {
+  max-width: 20px;
+  min-height: 20px;
+  cursor: pointer;
+}
