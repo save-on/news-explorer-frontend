@@ -1,0 +1,28 @@
+.news-card-list {
+  display: flex;
+  flex-direction: column;
+  padding: 0 104px;
+  background-color: #f5f6f7;
+}
+
+.news-card-list__title {
+  font-size: 40px;
+  margin: 80px 0 64px;
+}
+
+.news-card-list__button {
+  width: 288px;
+  min-height: 64px;
+  border-radius: 35px;
+  margin: 64px auto 80px;
+  font-size: 18px;
+  background-color: #fff;
+  border: none;
+  padding: 0;
+  transition: background-color 0.15s linear 0s;
+  cursor: pointer;
+}
+
+.news-card-list__button:hover {
+  background-color: #e8e8e8;
+}

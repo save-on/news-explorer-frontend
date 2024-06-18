@@ -1,14 +1,15 @@
 import "./App.css";
 import Header from "../Header/Header";
-import About from "../About/About";
 import Footer from "../Footer/Footer";
+import Main from "../Main/Main";
+import { cards } from "../../utils/constants"; //temporary
 
 const App = () => {
   return (
     <div className="app">
       <div className="app__content">
         <Header />
-        <About />
+        <Main cards={cards} />
         <Footer />
       </div>
     </div>

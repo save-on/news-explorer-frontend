@@ -35,6 +35,11 @@
   background: none;
   border: none;
   cursor: pointer;
+  transition: opacity 0.15s linear 0s;
+}
+
+.nav-bar__home-btn:hover {
+  opacity: 0.8;
 }
 
 .nav-bar__home-btn:focus {
@@ -53,7 +58,12 @@
   padding: 0;
   border: 1px solid #fff;
   background: none;
-  border-radius: 30px;
+  border-radius: 35px;
   font-size: 18px;
   cursor: pointer;
+  transition: opacity 0.15s linear 0s;
+}
+
+.nav-bar__signin-btn:hover {
+  opacity: 0.8;
 }

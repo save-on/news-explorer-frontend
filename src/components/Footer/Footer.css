@@ -16,6 +16,14 @@
   margin: 0;
 }
 
+.footer__info {
+  transition: opacity 0.15s linear 0s;
+}
+
+.footer__info:hover {
+  opacity: 0.8;
+}
+
 .footer__home-btn {
   border: none;
   background: none;
