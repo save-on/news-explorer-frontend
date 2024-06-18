@@ -5,7 +5,11 @@ const NewsCardList = ({ cards }) => {
   return (
     <section className="news-card-list">
       <h2 className="news-card-list__title">Search results</h2>
-      <NewsCard cards={cards} />
+      <ul className="news-card-list__articles">
+        {cards.map((card) => {
+          return <NewsCard card={card} key={card.source.id} />;
+        })}
+      </ul>
       <button type="button" className="news-card-list__button">
         Show more
       </button>

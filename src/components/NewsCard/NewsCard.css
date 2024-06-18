@@ -42,7 +42,13 @@
 
 .news-card__description {
   line-height: 22px;
+  width: 352px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
   margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .news-card__source {

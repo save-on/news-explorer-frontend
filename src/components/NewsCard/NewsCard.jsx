@@ -4,8 +4,8 @@ import markHover from "../../assets/mark-hover.svg";
 import markFilled from "../../assets/mark-filled.svg";
 import { useState } from "react";
 
-const NewsCard = ({ cards }) => {
-  const { source, title, description, url, urlToImage, publishedAt } = cards;
+const NewsCard = ({ card }) => {
+  const { source, title, description, url, urlToImage, publishedAt } = card;
 
   const [saveBtn, setSaveBtn] = useState("unfilled");
 

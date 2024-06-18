@@ -1,7 +1,7 @@
-export const card = [
+export const cards = [
   {
     source: {
-      id: null,
+      id: 1,
       name: "Gizmodo.com",
     },
     title: "Everything to Know About Bitcoin Pizza Day",
@@ -15,7 +15,7 @@ export const card = [
   },
   {
     source: {
-      id: "wired",
+      id: 2,
       name: "Wired",
     },
     author: "Joel Khalili",
@@ -32,7 +32,7 @@ export const card = [
   },
   {
     source: {
-      id: null,
+      id: 3,
       name: "ReadWrite",
     },
     author: "Petar Jovanović",
@@ -48,7 +48,7 @@ export const card = [
   },
   {
     source: {
-      id: null,
+      id: 4,
       name: "Gizmodo.com",
     },
     title: "Everything to Know About Bitcoin Pizza Day",
@@ -62,7 +62,7 @@ export const card = [
   },
 ];
 
-export const cards = {
+export const card = {
   source: {
     id: null,
     name: "Gizmodo.com",
