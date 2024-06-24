@@ -89,7 +89,7 @@
   background-image: url(../../assets/mark-filled.svg);
 }
 
-.news-card__save-container {
+.news-card__save-notification {
   font-family: "Roboto", sans-serif;
   font-weight: 500;
   position: absolute;
@@ -103,14 +103,60 @@
   width: 182px;
   height: 40px;
   visibility: hidden;
-}
-
-/* .news-card__save-container { fix later
-  visibility: visible;
-} */
-
-.news-card__save-notification {
   margin: 0;
   font-size: 12px;
   font-weight: 500;
+}
+
+.news-card__delete-btn {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  background-image: url(../../assets/unhovered-trash.png);
+  background-color: #fff;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.news-card__delete-btn:hover {
+  background-image: url(../../assets/hovered-trash.png);
+}
+
+.news-card__delete-notification {
+  position: absolute;
+  top: 24px;
+  right: 69px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  border-radius: 8px;
+  margin: 0;
+  width: 159px;
+  height: 40px;
+  background-color: #fff;
+  visibility: hidden;
+}
+
+.news-card__keyword {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  padding: 8px 22px;
+  background-color: #fff;
+  border-radius: 8px;
+  font-size: 14px;
+  text-transform: capitalize;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  line-height: 24px;
+  margin: 0;
 }

@@ -5,6 +5,7 @@ import Main from "../Main/Main";
 import { cards } from "../../utils/constants"; //temporary
 import { Routes, Route } from "react-router-dom";
 import SavedNewsHeader from "../SavedNewsHeader/SavedNewsHeader";
+import SavedNews from "../SavedNews/SavedNews";
 
 const App = () => {
   return (
@@ -25,6 +26,7 @@ const App = () => {
             element={
               <>
                 <SavedNewsHeader />
+                <SavedNews cards={cards} />
               </>
             }
           />
