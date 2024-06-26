@@ -1,6 +1,6 @@
 import "./Navigation.css";
 
-const Navigation = ({ color }) => {
+const Navigation = ({ color, onSignInClick }) => {
   return (
     <nav className={`nav-bar nav-bar_${color}`}>
       <p className={`nav-bar__logo nav-bar__logo_${color}`}>NewsExplorer</p>
@@ -19,6 +19,7 @@ const Navigation = ({ color }) => {
         <li className="nav-bar__signin">
           <button
             className={`nav-bar__signin-btn nav-bar__signin-btn_${color}`}
+            onClick={onSignInClick}
           >
             Sign in
           </button>

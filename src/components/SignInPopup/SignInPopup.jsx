@@ -1,9 +1,16 @@
 import PopupWithForm from "../PopupWithForm/PopupWithForm";
 import "./SignInPopup.css";
 
-const SignInPopup = () => {
+const SignInPopup = ({ activePopup, closePopup, handleSignUpClick }) => {
   return (
-    <PopupWithForm title="sign in" nameText="sign-in" popupNav="Sign up">
+    <PopupWithForm
+      title="sign in"
+      nameText="sign-in"
+      popupNav="Sign up"
+      isOpen={activePopup === "sign-in"}
+      onCloseClick={closePopup}
+      onNavClick={handleSignUpClick}
+    >
       <label htmlFor="signin-email" className="popup__input-title">
         email
         <input
