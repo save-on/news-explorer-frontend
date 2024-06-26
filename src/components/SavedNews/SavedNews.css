@@ -1,7 +1,13 @@
 .saved-news {
-  display: flex;
-  flex-direction: column;
   background-color: #f5f6f7;
+  max-width: 100%;
+}
+
+.saved-news__container {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 1440px;
 }
 
 .saved-news__articles {

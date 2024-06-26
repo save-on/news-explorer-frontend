@@ -28,6 +28,7 @@ const NewsCardList = ({ cards }) => {
                     : "news-card__save-btn_normal"
                 }`}
               />
+
               <p className="news-card__save-notification">
                 Sign in to save articles
               </p>

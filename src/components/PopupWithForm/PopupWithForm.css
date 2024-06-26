@@ -1,0 +1,135 @@
+.popup {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  visibility: hidden;
+  transition: visibility 0.3s, opacity 0.3s linear;
+}
+
+.popup_opened {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.3s linear 0s;
+}
+.popup__container {
+  position: relative;
+  background-color: #fff;
+  width: 430px;
+  height: fit-content;
+  margin: 203px 0 0;
+  padding: 34px 36px 28px;
+  border-radius: 16px;
+}
+
+.popup__title {
+  text-transform: capitalize;
+  font-family: "Roboto", sans-serif;
+  font-weight: 900;
+  margin: 0;
+}
+
+.popup__close-btn {
+  position: absolute;
+  top: -46px;
+  right: -46px;
+  background-image: url(../../assets/close.png);
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  transition: opacity 0.15s linear 0s;
+  cursor: pointer;
+}
+
+.popup__close-btn:hover {
+  opacity: 0.6;
+}
+
+.popup__form {
+  display: flex;
+  flex-direction: column;
+}
+
+.popup__input-title {
+  text-transform: capitalize;
+  font-family: "Inter", serif;
+  font-weight: 400;
+  font-size: 12px;
+  color: #2f71e5;
+  margin: 22px 0 0;
+}
+
+.popup__input-title:last-of-type {
+  margin: 31px 0 39px;
+}
+
+.popup__input {
+  display: block;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+  margin: 9px 0 0;
+  width: 100%;
+  padding: 10px 0 10px;
+  outline: none;
+  caret-color: #2f71e5;
+  font-size: 14px;
+}
+
+.popup__input:focus {
+  border-bottom: 1px solid #000;
+}
+
+.popup__submit-btn {
+  width: 360px;
+  height: 64px;
+  border-radius: 50px;
+  border: none;
+  background-color: #2f71e5;
+  color: #fff;
+  font-size: 18px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  text-transform: capitalize;
+  margin: 0 auto;
+  padding: 0;
+  transition: background-color 0.15s linear 0s, color 0.15s linear 0s;
+  cursor: pointer;
+}
+
+.popup__submit-btn:hover {
+  background-color: #347eff;
+}
+
+.popup__submit-btn:focus {
+  background-color: #2a65cc;
+}
+
+.popup__submit-btn:disabled {
+  background-color: #e6e8eb;
+  color: #b6bcbf;
+  cursor: not-allowed;
+}
+
+.popup__footer-text {
+  text-align: center;
+  margin: 16px 0 0;
+  font-family: "Inter", serif;
+  font-style: 14px;
+  font-weight: 400;
+}
+
+.popup__navigation {
+  margin: 0 0 0 5px;
+  color: #2f71e5;
+  cursor: pointer;
+}
+
+.popup__navigation:hover {
+  opacity: 0.8;
+}
