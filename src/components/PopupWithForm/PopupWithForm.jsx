@@ -4,40 +4,42 @@ const PopupWithForm = ({
   title,
   children,
   nameText,
-  popupNav,
+  formPopupNav,
   isOpen,
   onCloseClick,
   onNavClick,
 }) => {
   const handleOnClick = (e) => {
-    if (e.target.classList.contains("popup")) {
+    if (e.target.classList.contains("form-popup")) {
       onCloseClick("");
     }
   };
 
   return (
     <div
-      className={`popup popup_type_${nameText} ${isOpen && "popup_opened"}`}
+      className={`form-popup form-popup_type_${nameText} ${
+        isOpen && "form-popup_opened"
+      }`}
       onMouseDown={handleOnClick}
     >
-      <div className="popup__container">
-        <h2 className="popup__title">{title}</h2>
+      <div className="form-popup__container">
+        <h2 className="form-popup__title">{title}</h2>
         <button
           type="button"
-          className="popup__close-btn"
+          className="form-popup__close-btn"
           onClick={onCloseClick}
         />
-        <form className="popup__form" name={nameText}>
+        <form className="form-popup__form" name={nameText}>
           {children}
           {/* a <p> tag for non avaliable emails */}
-          <button type="submit" className="popup__submit-btn" disabled>
+          <button type="submit" className="form-popup__submit-btn" disabled>
             {title}
           </button>
         </form>
-        <p className="popup__footer-text">
+        <p className="form-popup__footer-text">
           or
-          <span className="popup__navigation" onClick={onNavClick}>
-            {popupNav}
+          <span className="form-popup__navigation" onClick={onNavClick}>
+            {formPopupNav}
           </span>
         </p>
       </div>

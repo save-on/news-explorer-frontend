@@ -6,39 +6,39 @@ const SignUpPopup = ({ activePopup, closePopup, handleSignInClick }) => {
     <PopupWithForm
       title="sign up"
       nameText="sign-up"
-      popupNav="Sign in"
+      formPopupNav="Sign in"
       isOpen={activePopup === "sign-up"}
       onCloseClick={closePopup}
       onNavClick={handleSignInClick}
     >
-      <label htmlFor="signup-email" className="popup__input-title">
+      <label htmlFor="signup-email" className="form-popup__input-title">
         email
         <input
           type="text"
           id="signup-email"
-          className="popup__input popup__input_type_signup-email"
+          className="form-popup__input form-popup__input_type_signup-email"
           placeholder="Enter email"
           name="email"
           required
         />
       </label>
-      <label htmlFor="signup-password" className="popup__input-title">
+      <label htmlFor="signup-password" className="form-popup__input-title">
         password
         <input
           type="password"
           id="signup-password"
-          className="popup__input popup__input_type_signup-password"
+          className="form-popup__input form-popup__input_type_signup-password"
           placeholder="Enter password"
           name="password"
           required
         />
       </label>
-      <label htmlFor="signup-username" className="popup__input-title">
+      <label htmlFor="signup-username" className="form-popup__input-title">
         username
         <input
           type="text"
           id="signup-username"
-          className="popup__input popup__input_type_signup-username"
+          className="form-popup__input form-popup__input_type_signup-username"
           placeholder="Enter your username"
           name="username"
           required
