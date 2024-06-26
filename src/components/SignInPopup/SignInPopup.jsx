@@ -19,7 +19,7 @@ const SignInPopup = () => {
         password
         <input
           type="password"
-          className="popup__input"
+          className="popup__input popup__input_type_signin-password"
           id="signin-password"
           placeholder="Enter password"
           name="password"

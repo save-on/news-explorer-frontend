@@ -7,6 +7,7 @@ import { Routes, Route } from "react-router-dom";
 import SavedNewsHeader from "../SavedNewsHeader/SavedNewsHeader";
 import SavedNews from "../SavedNews/SavedNews";
 import SignInPopup from "../SignInPopup/SignInPopup";
+import SignUpPopup from "../SignUpPopup/SignUpPopup";
 
 const App = () => {
   return (
@@ -34,7 +35,8 @@ const App = () => {
         </Routes>
         <Footer />
       </div>
-      <SignInPopup />
+      {/* <SignInPopup /> */}
+      <SignUpPopup />
     </div>
   );
 };
