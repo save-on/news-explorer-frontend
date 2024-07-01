@@ -5,21 +5,26 @@
   background-color: #f5f6f7;
 }
 
-.news-card-list__title {
-  font-family: "Roboto Slab", sans-serif;
-  font-weight: 400;
-  font-size: 40px;
-  margin: 80px 0 64px;
-}
-
 .news-card-list__articles {
+  position: relative;
   display: grid;
   max-width: 100%;
   grid-gap: 16px;
-  margin: 0 auto;
-  grid-template-columns: repeat(auto-fit, 400px);
+  margin: 190px auto 0;
+  grid-template-columns: auto auto auto;
   list-style-type: none;
   padding: 0;
+}
+
+.news-card-list__title {
+  position: absolute;
+  font-family: "Roboto Slab", sans-serif;
+  font-weight: 400;
+  font-size: 40px;
+  margin: 0;
+  top: -110px;
+  left: 0;
+  z-index: 1;
 }
 
 .news-card-list__button {

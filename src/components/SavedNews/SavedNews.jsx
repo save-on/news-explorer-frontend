@@ -1,12 +1,16 @@
+import { useContext } from "react";
 import NewsCard from "../NewsCard/NewsCard";
 import "./SavedNews.css";
+import CardsListContext from "../../contexts/CardsListContext";
 
-const SavedNews = ({ cards }) => {
+const SavedNews = () => {
+  const { cardsList } = useContext(CardsListContext);
+
   return (
     <section className="saved-news">
       <div className="saved-news__container">
         <ul className="saved-news__articles">
-          {cards.map((card) => (
+          {cardsList.map((card) => (
             <NewsCard card={card} key={card.source.id}>
               <button className="news-card__delete-btn" type="button" />
               <p className="news-card__delete-notification">

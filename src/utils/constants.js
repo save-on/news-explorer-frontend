@@ -62,17 +62,6 @@ export const cards = [
   },
 ];
 
-export const card = {
-  source: {
-    id: null,
-    name: "Gizmodo.com",
-  },
-  title: "Everything to Know About Bitcoin Pizza Day",
-  author: "Vinamrata Chaturvedi, Quartz",
-  description:
-    "On May 22, 2010, a man in Florida paid 10,000 Bitcoin for pizza.Read more...",
-  url: "https://gizmodo.com/bitcoin-pizza-day-date-origin-history-cryptocurrency-1851487831",
-  urlToImage:
-    "https://i.kinja-img.com/image/upload/c_fill,h_675,pg_1,q_80,w_1200/98aec6479bad523f5c89763f4acf0cf9.jpg",
-  publishedAt: "2024-05-20T13:20:00Z",
+export const baseUrl = (query) => {
+  return `https://newsapi.org/v2/everything?q=${query}&language=en&apiKey=4f5f1867a74e45f980842a94affd7cc5`;
 };

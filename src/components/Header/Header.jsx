@@ -2,7 +2,7 @@ import "./Header.css";
 import Navigation from "../Navigation/Navigation";
 import SearchForm from "../SearchForm/SearchForm";
 
-const Header = ({ handleSignInClick }) => {
+const Header = ({ handleSignInClick, handleSubmit, setSearchActive }) => {
   return (
     <header className="header">
       <Navigation color={"light"} onSignInClick={handleSignInClick} />
@@ -11,7 +11,10 @@ const Header = ({ handleSignInClick }) => {
         Find the latest news on any topic and save them in your personal
         account.
       </p>
-      <SearchForm />
+      <SearchForm
+        handleSubmit={handleSubmit}
+        setSearchActive={setSearchActive}
+      />
     </header>
   );
 };
