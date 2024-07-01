@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import NewsCard from "../NewsCard/NewsCard";
 import "./NewsCardList.css";
 import CardsListContext from "../../contexts/CardsListContext";
+import NoResults from "../NoResults/NoResults";
 
 const NewsCardList = ({ searchActive }) => {
   const { cardsList } = useContext(CardsListContext);
@@ -25,7 +26,7 @@ const NewsCardList = ({ searchActive }) => {
     <section className="news-card-list">
       {searchActive ? (
         cardsList.length === 0 ? (
-          <p>No articles</p>
+          <NoResults />
         ) : (
           <>
             <ul className="news-card-list__articles">

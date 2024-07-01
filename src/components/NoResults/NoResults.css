@@ -1,0 +1,30 @@
+.no-results__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.no-results__image {
+  width: 82.5px;
+  height: 82.5px;
+  object-fit: cover;
+  object-position: center;
+  margin: 86px 0 0;
+}
+
+.no-results__title {
+  font-size: 26px;
+  font-family: "Roboto Slab", sans-serif;
+  font-weight: 400;
+  margin: 31.5px 0 0;
+}
+
+.no-results__description {
+  font-size: 18px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  max-width: 226px;
+  text-align: center;
+  margin: 16px 0 80px;
+  color: #b6bcbf;
+}
