@@ -3,8 +3,9 @@ import NewsCard from "../NewsCard/NewsCard";
 import "./NewsCardList.css";
 import CardsListContext from "../../contexts/CardsListContext";
 import NoResults from "../NoResults/NoResults";
+import PreLoader from "../PreLoader/PreLoader";
 
-const NewsCardList = ({ searchActive }) => {
+const NewsCardList = ({ searchActive, isLoading }) => {
   const { cardsList } = useContext(CardsListContext);
   const [saveBtns, setSaveBtn] = useState(
     Array(cardsList.length).fill("unfilled")
@@ -24,7 +25,9 @@ const NewsCardList = ({ searchActive }) => {
 
   return (
     <section className="news-card-list">
-      {searchActive ? (
+      {isLoading ? (
+        <PreLoader />
+      ) : searchActive ? (
         cardsList.length === 0 ? (
           <NoResults />
         ) : (
@@ -71,5 +74,3 @@ const NewsCardList = ({ searchActive }) => {
 };
 
 export default NewsCardList;
-
-// style no results found and preloader and get those working

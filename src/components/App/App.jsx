@@ -72,7 +72,7 @@ const App = () => {
                     handleSubmit={handleSubmit}
                     setSearchActive={setSearchActive}
                   />
-                  <Main searchActive={searchActive} />
+                  <Main searchActive={searchActive} isLoading={isLoading} />
                 </>
               }
             />
