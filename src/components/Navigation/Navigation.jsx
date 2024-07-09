@@ -1,20 +1,29 @@
+import { Link } from "react-router-dom";
 import "./Navigation.css";
 
 const Navigation = ({ color, onSignInClick }) => {
   return (
     <nav className={`nav-bar nav-bar_${color}`}>
-      <p className={`nav-bar__logo nav-bar__logo_${color}`}>NewsExplorer</p>
+      <Link to="/" className={`nav-bar__logo nav-bar__logo_${color}`}>
+        <p>NewsExplorer</p>
+      </Link>
       <ul className="nav-bar__content">
         <li className="nav-bar__home">
-          <button className={`nav-bar__btn nav-bar__btn_${color}`}>Home</button>
+          <Link to="/">
+            <button className={`nav-bar__btn nav-bar__btn_${color}`}>
+              Home
+            </button>
+          </Link>
         </li>
         <li className="nav-bar__save-articles">
-          <button
-            type="button"
-            className={`nav-bar__btn nav-bar__btn_${color}`}
-          >
-            Saved articles
-          </button>
+          <Link to="/saved-news">
+            <button
+              type="button"
+              className={`nav-bar__btn nav-bar__btn_${color}`}
+            >
+              Saved articles
+            </button>
+          </Link>
         </li>
         <li className="nav-bar__signin">
           <button

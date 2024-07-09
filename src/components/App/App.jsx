@@ -10,12 +10,15 @@ import SignUpPopup from "../SignUpPopup/SignUpPopup";
 import SuccessModal from "../SuccessModal/SuccessModal";
 import { useEffect, useState } from "react";
 import CardsListContext from "../../contexts/CardsListContext";
+import SavedArticlesContext from "../../contexts/SavedArticlesContext";
 
 const App = () => {
   const [activePopup, setActivePopup] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [searchActive, setSearchActive] = useState(false);
   const [cardsList, setCardsList] = useState([]);
+  const [savedArticles, setSavedArticles] = useState([]);
+  const [currentKeyword, setCurrentKeyword] = useState();
 
   useEffect(() => {
     if (!activePopup) return;
@@ -61,33 +64,42 @@ const App = () => {
   return (
     <div className="app">
       <CardsListContext.Provider value={{ cardsList, setCardsList }}>
-        <div className="app__content">
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <>
-                  <Header
-                    handleSignInClick={handleSignInClick}
-                    handleSubmit={handleSubmit}
-                    setSearchActive={setSearchActive}
-                  />
-                  <Main searchActive={searchActive} isLoading={isLoading} />
-                </>
-              }
-            />
-            <Route
-              path="/saved-news"
-              element={
-                <>
-                  <SavedNewsHeader />
-                  <SavedNews />
-                </>
-              }
-            />
-          </Routes>
-          <Footer />
-        </div>
+        <SavedArticlesContext.Provider
+          value={{ savedArticles, setSavedArticles }}
+        >
+          <div className="app__content">
+            <Routes>
+              <Route
+                path="/"
+                element={
+                  <>
+                    <Header
+                      handleSignInClick={handleSignInClick}
+                      handleSubmit={handleSubmit}
+                      setSearchActive={setSearchActive}
+                      setCurrentKeyword={setCurrentKeyword}
+                    />
+                    <Main
+                      searchActive={searchActive}
+                      isLoading={isLoading}
+                      currentKeyword={currentKeyword}
+                    />
+                  </>
+                }
+              />
+              <Route
+                path="/saved-news"
+                element={
+                  <>
+                    <SavedNewsHeader />
+                    <SavedNews />
+                  </>
+                }
+              />
+            </Routes>
+            <Footer />
+          </div>
+        </SavedArticlesContext.Provider>
       </CardsListContext.Provider>
       <SignInPopup
         activePopup={activePopup}
@@ -109,5 +121,18 @@ const App = () => {
 };
 
 export default App;
-
-// you can build register successful popup later but start functionality of modals opening and closing
+/*
+  Todo List
+  - grab search info from the localStorage (use a hook)
+  x stub out the saved articles and get that working
+  x use search keyword and and put it on the keyword section of the 
+  saved articles card
+  - hide saved articles for users that aren't signed in
+  - if there's an error put the following message in an error block
+  "Sorry, something went wrong during the request. There may be a 
+  connection issue or the server may be down. Please try again later."
+  - adapt the website to fit all screen sizes
+  - be sure all images have an alt
+  - make it so that when users aren't signed in on hover they see that 
+  you have to sign in to save articles
+ */

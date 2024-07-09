@@ -2,7 +2,12 @@ import "./Header.css";
 import Navigation from "../Navigation/Navigation";
 import SearchForm from "../SearchForm/SearchForm";
 
-const Header = ({ handleSignInClick, handleSubmit, setSearchActive }) => {
+const Header = ({
+  handleSignInClick,
+  handleSubmit,
+  setSearchActive,
+  setCurrentKeyword,
+}) => {
   return (
     <header className="header">
       <Navigation color={"light"} onSignInClick={handleSignInClick} />
@@ -14,6 +19,7 @@ const Header = ({ handleSignInClick, handleSubmit, setSearchActive }) => {
       <SearchForm
         handleSubmit={handleSubmit}
         setSearchActive={setSearchActive}
+        setCurrentKeyword={setCurrentKeyword}
       />
     </header>
   );

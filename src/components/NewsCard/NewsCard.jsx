@@ -1,8 +1,6 @@
 import "./NewsCard.css";
 
 const NewsCard = ({ children, card }) => {
-  const { source, title, description, url, urlToImage, publishedAt } = card;
-
   const handleDateConversion = (date) => {
     const options = {
       year: "numeric",
@@ -15,15 +13,19 @@ const NewsCard = ({ children, card }) => {
 
   return (
     <li className="news-card">
-      <a className="news-card__link" href={url} target="_blank">
-        <img src={urlToImage} alt={title} className="news-card__image" />
+      <a className="news-card__link" href={card.url} target="_blank">
+        <img
+          src={card.urlToImage}
+          alt={card.title}
+          className="news-card__image"
+        />
         <div className="news-card__information">
           <p className="news-card__publication">
-            {handleDateConversion(publishedAt)}
+            {handleDateConversion(card.publishedAt)}
           </p>
-          <h2 className="news-card__title">{title}</h2>
-          <p className="news-card__description">{description}</p>
-          <p className="news-card__source">{source.name}</p>
+          <h2 className="news-card__title">{card.title}</h2>
+          <p className="news-card__description">{card.description}</p>
+          <p className="news-card__source">{card.source.name}</p>
         </div>
       </a>
       {children}

@@ -4,9 +4,9 @@ import { useForm } from "../../hooks/useForm";
 import { useContext } from "react";
 import CardsListContext from "../../contexts/CardsListContext";
 
-const SearchForm = ({ handleSubmit, setSearchActive }) => {
+const SearchForm = ({ handleSubmit, setSearchActive, setCurrentKeyword }) => {
   const { setCardsList } = useContext(CardsListContext);
-  const { values, handleChanges, setValues } = useForm({
+  const { values, handleChanges } = useForm({
     search: "",
   });
 
@@ -14,8 +14,8 @@ const SearchForm = ({ handleSubmit, setSearchActive }) => {
     e.preventDefault();
     const makeRequest = () => {
       return getNews(values.search).then((data) => {
-        console.log(data.articles);
         setCardsList(data.articles);
+        setCurrentKeyword(values.search);
         setSearchActive(true);
       });
     };

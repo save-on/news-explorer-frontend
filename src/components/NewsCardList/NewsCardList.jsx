@@ -4,23 +4,26 @@ import "./NewsCardList.css";
 import CardsListContext from "../../contexts/CardsListContext";
 import NoResults from "../NoResults/NoResults";
 import PreLoader from "../PreLoader/PreLoader";
+import { getSavedArticles } from "../../stub/api";
+import SavedArticlesContext from "../../contexts/SavedArticlesContext";
 
-const NewsCardList = ({ searchActive, isLoading }) => {
+const NewsCardList = ({ searchActive, isLoading, currentKeyword }) => {
   const { cardsList } = useContext(CardsListContext);
-  const [saveBtns, setSaveBtn] = useState(
-    Array(cardsList.length).fill("unfilled")
-  );
+  const { savedArticles, setSavedArticles } = useContext(SavedArticlesContext);
+
   const [visibleArticles, setVisibleArticles] = useState(3);
 
   const handleShowMore = () => {
     setVisibleArticles((articles) => articles + 3);
   };
 
-  const handleBtnClick = (index) => {
-    const newSaveBtns = saveBtns.map((state, idx) =>
-      idx === index ? (state === "unfilled" ? "filled" : "unfilled") : state
-    );
-    setSaveBtn(newSaveBtns);
+  const handleSaveClick = (card) => {
+    if (currentKeyword) {
+      getSavedArticles(card).then((data) => {
+        data.keyword = currentKeyword;
+        setSavedArticles((prev) => [...prev, data]);
+      });
+    }
   };
 
   return (
@@ -34,7 +37,7 @@ const NewsCardList = ({ searchActive, isLoading }) => {
           <>
             <ul className="news-card-list__articles">
               <h2 className="news-card-list__title">Search results</h2>
-              {cardsList.slice(0, visibleArticles).map((card, index) => {
+              {cardsList.slice(0, visibleArticles).map((card) => {
                 return (
                   <NewsCard
                     card={card}
@@ -42,12 +45,10 @@ const NewsCardList = ({ searchActive, isLoading }) => {
                   >
                     <button
                       type="button"
-                      onClick={() => handleBtnClick(index)}
-                      className={`news-card__save-btn ${
-                        saveBtns[index] === "filled"
-                          ? "news-card__save-btn_filled"
-                          : "news-card__save-btn_normal"
-                      }`}
+                      className="news-card__save-btn news-card__save-btn_normal"
+                      onClick={() => {
+                        handleSaveClick(card);
+                      }}
                     />
 
                     <p className="news-card__save-notification">
