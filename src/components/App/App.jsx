@@ -14,11 +14,17 @@ import SavedArticlesContext from "../../contexts/SavedArticlesContext";
 
 const App = () => {
   const [activePopup, setActivePopup] = useState("");
+  const [selectedArticle, setSelectedArticle] = useState({});
   const [isLoading, setIsLoading] = useState(false);
   const [searchActive, setSearchActive] = useState(false);
   const [cardsList, setCardsList] = useState([]);
   const [savedArticles, setSavedArticles] = useState([]);
   const [currentKeyword, setCurrentKeyword] = useState();
+  const [currentUser, setCurrentUser] = useState({
+    name: "",
+    id: "",
+  });
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
     if (!activePopup) return;
@@ -43,6 +49,15 @@ const App = () => {
   const handleRegisteredClick = () => {
     // add this to a successful sign up submit
     setActivePopup("registered");
+  };
+
+  const handleDelete = (item) => {
+    console.log(item);
+  };
+
+  const handleArticleRemove = (article) => {
+    setSelectedArticle(article);
+    console.log(article);
   };
 
   const handleSubmit = (request) => {
@@ -92,7 +107,10 @@ const App = () => {
                 element={
                   <>
                     <SavedNewsHeader />
-                    <SavedNews />
+                    <SavedNews
+                      handleArticleRemove={handleArticleRemove}
+                      article={selectedArticle}
+                    />
                   </>
                 }
               />
@@ -124,9 +142,6 @@ export default App;
 /*
   Todo List
   - grab search info from the localStorage (use a hook)
-  x stub out the saved articles and get that working
-  x use search keyword and and put it on the keyword section of the 
-  saved articles card
   - hide saved articles for users that aren't signed in
   - if there's an error put the following message in an error block
   "Sorry, something went wrong during the request. There may be a 
@@ -135,4 +150,7 @@ export default App;
   - be sure all images have an alt
   - make it so that when users aren't signed in on hover they see that 
   you have to sign in to save articles
+  - get the delete cards to work
+  - create a temporary user sign in
+  - get saved article fill to work
  */
