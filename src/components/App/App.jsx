@@ -11,6 +11,7 @@ import SuccessModal from "../SuccessModal/SuccessModal";
 import { useEffect, useState } from "react";
 import CardsListContext from "../../contexts/CardsListContext";
 import SavedArticlesContext from "../../contexts/SavedArticlesContext";
+import { getSearch } from "../../utils/storage";
 
 const App = () => {
   const [activePopup, setActivePopup] = useState("");
@@ -41,6 +42,14 @@ const App = () => {
       document.removeEventListener("keydown", handleEscClick);
     };
   }, [activePopup]);
+
+  useEffect(() => {
+    const search = getSearch();
+    if (search === null) {
+      return;
+    }
+    setCurrentKeyword(search);
+  }, []);
 
   const handleSignInClick = () => {
     setActivePopup("sign-in");
@@ -94,6 +103,7 @@ const App = () => {
                       handleSubmit={handleSubmit}
                       setSearchActive={setSearchActive}
                       setCurrentKeyword={setCurrentKeyword}
+                      currentKeyword={currentKeyword}
                       isLoggedIn={isLoggedIn}
                     />
                     <Main

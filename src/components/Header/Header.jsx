@@ -7,6 +7,7 @@ const Header = ({
   handleSubmit,
   setSearchActive,
   setCurrentKeyword,
+  currentKeyword,
   isLoggedIn,
 }) => {
   return (
@@ -25,6 +26,7 @@ const Header = ({
         handleSubmit={handleSubmit}
         setSearchActive={setSearchActive}
         setCurrentKeyword={setCurrentKeyword}
+        currentKeyword={currentKeyword}
       />
     </header>
   );

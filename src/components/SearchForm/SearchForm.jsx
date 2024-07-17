@@ -3,11 +3,17 @@ import { getNews } from "../../utils/newsApi";
 import { useForm } from "../../hooks/useForm";
 import { useContext } from "react";
 import CardsListContext from "../../contexts/CardsListContext";
+import { setSearch } from "../../utils/storage";
 
-const SearchForm = ({ handleSubmit, setSearchActive, setCurrentKeyword }) => {
+const SearchForm = ({
+  handleSubmit,
+  setSearchActive,
+  setCurrentKeyword,
+  currentKeyword,
+}) => {
   const { setCardsList } = useContext(CardsListContext);
   const { values, handleChanges } = useForm({
-    search: "",
+    search: `${currentKeyword}`, //undefined
   });
 
   const handleGetNews = (e) => {
@@ -16,6 +22,7 @@ const SearchForm = ({ handleSubmit, setSearchActive, setCurrentKeyword }) => {
       return getNews(values.search).then((data) => {
         setCardsList(data.articles);
         setCurrentKeyword(values.search);
+        setSearch(values.search);
         setSearchActive(true);
       });
     };
