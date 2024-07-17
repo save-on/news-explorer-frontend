@@ -7,10 +7,15 @@ const Header = ({
   handleSubmit,
   setSearchActive,
   setCurrentKeyword,
+  isLoggedIn,
 }) => {
   return (
     <header className="header">
-      <Navigation color={"light"} onSignInClick={handleSignInClick} />
+      <Navigation
+        color={"light"}
+        isLoggedIn={isLoggedIn}
+        onSignInClick={handleSignInClick}
+      />
       <h1 className="header__title">What's going on in the world?</h1>
       <p className="header__subtitle">
         Find the latest news on any topic and save them in your personal

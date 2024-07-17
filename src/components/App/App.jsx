@@ -51,19 +51,20 @@ const App = () => {
     setActivePopup("registered");
   };
 
-  const handleDelete = (item) => {
-    console.log(item);
-  };
+  const handleSaved = () => {};
 
-  const handleArticleRemove = (article) => {
-    setSelectedArticle(article);
-    console.log(article);
+  const handleDelete = () => {
+    const newSaved = savedArticles.toSpliced(
+      savedArticles.indexOf(selectedArticle),
+      1
+    );
+    setSavedArticles(newSaved);
   };
 
   const handleSubmit = (request) => {
     setIsLoading(true);
     request()
-      .then()
+      .then(closePopup)
       .catch(console.error)
       .finally(() => setIsLoading(false));
   };
@@ -93,11 +94,13 @@ const App = () => {
                       handleSubmit={handleSubmit}
                       setSearchActive={setSearchActive}
                       setCurrentKeyword={setCurrentKeyword}
+                      isLoggedIn={isLoggedIn}
                     />
                     <Main
                       searchActive={searchActive}
                       isLoading={isLoading}
                       currentKeyword={currentKeyword}
+                      isLoggedIn={isLoggedIn}
                     />
                   </>
                 }
@@ -108,8 +111,8 @@ const App = () => {
                   <>
                     <SavedNewsHeader />
                     <SavedNews
-                      handleArticleRemove={handleArticleRemove}
-                      article={selectedArticle}
+                      setSelectedArticle={setSelectedArticle}
+                      handleDelete={handleDelete}
                     />
                   </>
                 }
@@ -123,6 +126,9 @@ const App = () => {
         activePopup={activePopup}
         closePopup={closePopup}
         handleSignUpClick={handleSignUpClick}
+        handleSubmit={handleSubmit}
+        setIsLoggedIn={setIsLoggedIn}
+        setCurrentUser={setCurrentUser}
       />
       <SignUpPopup
         activePopup={activePopup}
@@ -142,15 +148,14 @@ export default App;
 /*
   Todo List
   - grab search info from the localStorage (use a hook)
-  - hide saved articles for users that aren't signed in
   - if there's an error put the following message in an error block
   "Sorry, something went wrong during the request. There may be a 
   connection issue or the server may be down. Please try again later."
   - adapt the website to fit all screen sizes
   - be sure all images have an alt
-  - make it so that when users aren't signed in on hover they see that 
-  you have to sign in to save articles
-  - get the delete cards to work
-  - create a temporary user sign in
   - get saved article fill to work
+  - fix the duplicate saved articles problem
+  - make sure all btns and comps have a loading effect
+  - make sure signup works
+  - fill in currentUser in all locations applicable
  */

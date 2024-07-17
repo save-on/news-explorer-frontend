@@ -51,7 +51,7 @@
   width: 352px;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 4;
+  line-clamp: 4;
   margin: 0;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -75,6 +75,7 @@
   border-radius: 8px;
   border: none;
   background-color: #fff;
+  cursor: pointer;
 }
 
 .news-card__save-btn_normal {
@@ -105,7 +106,10 @@
   visibility: hidden;
   margin: 0;
   font-size: 12px;
-  font-weight: 500;
+}
+
+.news-card__save-btn_normal:hover + .news-card__save-notification {
+  visibility: visible;
 }
 
 .news-card__delete-btn {
@@ -144,6 +148,10 @@
   height: 40px;
   background-color: #fff;
   visibility: hidden;
+}
+
+.news-card__delete-btn:hover + .news-card__delete-notification {
+  visibility: visible;
 }
 
 .news-card__keyword {

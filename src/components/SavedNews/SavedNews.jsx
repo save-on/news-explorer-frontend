@@ -3,11 +3,11 @@ import NewsCard from "../NewsCard/NewsCard";
 import "./SavedNews.css";
 import SavedArticlesContext from "../../contexts/SavedArticlesContext";
 
-const SavedNews = ({ handleArticleRemove, article }) => {
+const SavedNews = ({ setSelectedArticle, handleDelete }) => {
   const { savedArticles } = useContext(SavedArticlesContext);
 
-  const handleDelete = () => {
-    handleArticleRemove(article);
+  const handleSelect = (article) => {
+    setSelectedArticle(article);
   };
 
   return (
@@ -22,7 +22,12 @@ const SavedNews = ({ handleArticleRemove, article }) => {
                 <button
                   className="news-card__delete-btn"
                   type="button"
-                  onClick={handleDelete}
+                  onMouseEnter={() => {
+                    handleSelect(card);
+                  }}
+                  onClick={() => {
+                    handleDelete();
+                  }}
                 />
                 <p className="news-card__delete-notification">
                   Remove from saved

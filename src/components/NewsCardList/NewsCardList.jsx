@@ -7,9 +7,14 @@ import PreLoader from "../PreLoader/PreLoader";
 import { getSavedArticles } from "../../stub/api";
 import SavedArticlesContext from "../../contexts/SavedArticlesContext";
 
-const NewsCardList = ({ searchActive, isLoading, currentKeyword }) => {
+const NewsCardList = ({
+  searchActive,
+  isLoading,
+  currentKeyword,
+  isLoggedIn,
+}) => {
   const { cardsList } = useContext(CardsListContext);
-  const { savedArticles, setSavedArticles } = useContext(SavedArticlesContext);
+  const { setSavedArticles } = useContext(SavedArticlesContext);
 
   const [visibleArticles, setVisibleArticles] = useState(3);
 
@@ -47,13 +52,16 @@ const NewsCardList = ({ searchActive, isLoading, currentKeyword }) => {
                       type="button"
                       className="news-card__save-btn news-card__save-btn_normal"
                       onClick={() => {
-                        handleSaveClick(card);
+                        if (isLoggedIn) {
+                          handleSaveClick(card);
+                        }
                       }}
                     />
-
-                    <p className="news-card__save-notification">
-                      Sign in to save articles
-                    </p>
+                    {!isLoggedIn ? (
+                      <p className="news-card__save-notification">
+                        Sign in to save articles
+                      </p>
+                    ) : null}
                   </NewsCard>
                 );
               })}
@@ -67,9 +75,7 @@ const NewsCardList = ({ searchActive, isLoading, currentKeyword }) => {
             </button>
           </>
         )
-      ) : (
-        <></>
-      )}
+      ) : null}
     </section>
   );
 };

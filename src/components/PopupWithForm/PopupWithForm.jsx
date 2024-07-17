@@ -8,6 +8,7 @@ const PopupWithForm = ({
   isOpen,
   onCloseClick,
   onNavClick,
+  onSubmitClick,
 }) => {
   const handleOnClick = (e) => {
     if (e.target.classList.contains("form-popup")) {
@@ -29,10 +30,14 @@ const PopupWithForm = ({
           className="form-popup__close-btn"
           onClick={onCloseClick}
         />
-        <form className="form-popup__form" name={nameText}>
+        <form
+          className="form-popup__form"
+          onSubmit={onSubmitClick}
+          name={nameText}
+        >
           {children}
           {/* a <p> tag for non avaliable emails */}
-          <button type="submit" className="form-popup__submit-btn" disabled>
+          <button type="submit" className="form-popup__submit-btn">
             {title}
           </button>
         </form>
