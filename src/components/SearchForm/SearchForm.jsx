@@ -1,25 +1,35 @@
 import "./SearchForm.css";
 import { getNews } from "../../utils/newsApi";
 import { useForm } from "../../hooks/useForm";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import CardsListContext from "../../contexts/CardsListContext";
 import { setSearch } from "../../utils/storage";
 
 const SearchForm = ({
   handleSubmit,
   setSearchActive,
-  setCurrentKeyword,
   currentKeyword,
+  setCurrentKeyword,
 }) => {
   const { setCardsList } = useContext(CardsListContext);
-  const { values, handleChanges } = useForm({
-    search: `${currentKeyword}`, //undefined
+  const { values, handleChanges, setValues } = useForm({
+    search: currentKeyword || "",
   });
+
+  useEffect(() => {
+    setValues({
+      search: currentKeyword || "",
+    });
+  }, [currentKeyword]);
 
   const handleGetNews = (e) => {
     e.preventDefault();
     const makeRequest = () => {
       return getNews(values.search).then((data) => {
+        data.articles.forEach((article) => {
+          article.isSaved = false;
+          article.keyword = "";
+        });
         setCardsList(data.articles);
         setCurrentKeyword(values.search);
         setSearch(values.search);

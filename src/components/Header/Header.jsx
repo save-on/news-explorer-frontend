@@ -6,9 +6,9 @@ const Header = ({
   handleSignInClick,
   handleSubmit,
   setSearchActive,
-  setCurrentKeyword,
-  currentKeyword,
   isLoggedIn,
+  currentKeyword,
+  setCurrentKeyword,
 }) => {
   return (
     <header className="header">
@@ -25,8 +25,8 @@ const Header = ({
       <SearchForm
         handleSubmit={handleSubmit}
         setSearchActive={setSearchActive}
-        setCurrentKeyword={setCurrentKeyword}
         currentKeyword={currentKeyword}
+        setCurrentKeyword={setCurrentKeyword}
       />
     </header>
   );

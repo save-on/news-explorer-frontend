@@ -1,35 +1,44 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import NewsCard from "../NewsCard/NewsCard";
 import "./NewsCardList.css";
 import CardsListContext from "../../contexts/CardsListContext";
 import NoResults from "../NoResults/NoResults";
 import PreLoader from "../PreLoader/PreLoader";
-import { getSavedArticles } from "../../stub/api";
-import SavedArticlesContext from "../../contexts/SavedArticlesContext";
 
 const NewsCardList = ({
   searchActive,
   isLoading,
-  currentKeyword,
   isLoggedIn,
+  currentKeyword,
+  setSavedArticles,
+  savedArticles,
 }) => {
   const { cardsList } = useContext(CardsListContext);
-  const { setSavedArticles } = useContext(SavedArticlesContext);
-
   const [visibleArticles, setVisibleArticles] = useState(3);
+
+  const handlePrevSaves = (card) => {
+    savedArticles.forEach((article) => {
+      if (card.title === article.title) {
+        card.isSaved = true;
+      }
+    });
+  };
 
   const handleShowMore = () => {
     setVisibleArticles((articles) => articles + 3);
   };
 
   const handleSaveClick = (card) => {
-    if (currentKeyword) {
-      getSavedArticles(card).then((data) => {
-        data.keyword = currentKeyword;
-        setSavedArticles((prev) => [...prev, data]);
-      });
+    if (card.isSaved) {
+      return;
     }
+    card.isSaved = true;
+    card.keyword = currentKeyword;
+    setSavedArticles((prev) => [...prev, card]);
   };
+
+  const handleSaveBtnClass = (isSaved) =>
+    isSaved ? "news-card__save-btn_filled" : "news-card__save-btn_normal";
 
   return (
     <section className="news-card-list">
@@ -43,6 +52,7 @@ const NewsCardList = ({
             <ul className="news-card-list__articles">
               <h2 className="news-card-list__title">Search results</h2>
               {cardsList.slice(0, visibleArticles).map((card) => {
+                handlePrevSaves(card);
                 return (
                   <NewsCard
                     card={card}
@@ -50,7 +60,9 @@ const NewsCardList = ({
                   >
                     <button
                       type="button"
-                      className="news-card__save-btn news-card__save-btn_normal"
+                      className={`news-card__save-btn ${handleSaveBtnClass(
+                        card.isSaved
+                      )}`}
                       onClick={() => {
                         if (isLoggedIn) {
                           handleSaveClick(card);

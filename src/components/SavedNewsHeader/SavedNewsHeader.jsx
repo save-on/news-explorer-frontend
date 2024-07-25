@@ -1,10 +1,7 @@
-import { useContext } from "react";
 import Navigation from "../Navigation/Navigation";
 import "./SavedNewsHeader.css";
-import SavedArticlesContext from "../../contexts/SavedArticlesContext";
 
-const SavedNewsHeader = () => {
-  const { savedArticles } = useContext(SavedArticlesContext);
+const SavedNewsHeader = ({ savedArticles }) => {
   const handleKeywords = (articles) => {
     const arr = [];
     articles.forEach((article) => {

@@ -1,18 +1,14 @@
 import { useContext } from "react";
 import NewsCard from "../NewsCard/NewsCard";
 import "./SavedNews.css";
-import SavedArticlesContext from "../../contexts/SavedArticlesContext";
+import CardsListContext from "../../contexts/CardsListContext";
 
-const SavedNews = ({ setSelectedArticle, handleDelete }) => {
-  const { savedArticles } = useContext(SavedArticlesContext);
-
-  const handleSelect = (article) => {
-    setSelectedArticle(article);
-  };
+const SavedNews = ({ savedArticles }) => {
+  const { cardsList } = useContext(CardsListContext);
 
   return (
     <section className="saved-news">
-      {savedArticles.length === 0 ? (
+      {cardsList.length === 0 ? (
         <></>
       ) : (
         <div className="saved-news__container">
@@ -22,11 +18,8 @@ const SavedNews = ({ setSelectedArticle, handleDelete }) => {
                 <button
                   className="news-card__delete-btn"
                   type="button"
-                  onMouseEnter={() => {
-                    handleSelect(card);
-                  }}
                   onClick={() => {
-                    handleDelete();
+                    // handleDelete(card);
                   }}
                 />
                 <p className="news-card__delete-notification">
