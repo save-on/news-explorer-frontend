@@ -53,24 +53,25 @@
   transition: opacity 0.15s linear 0s;
 }
 
+.nav-bar__btn_home {
+  border-bottom: 3px solid;
+}
+.nav-bar__btn_saved-news {
+  border-bottom: 3px solid;
+}
+
 .nav-bar__btn_light {
   color: #fff;
+  border-color: #fff;
 }
 
 .nav-bar__btn_dark {
   color: #1a1b22;
+  border-color: #1a1b22;
 }
 
 .nav-bar__btn:hover {
   opacity: 0.8;
-}
-
-.nav-bar__btn_light:focus {
-  border-bottom: 3px solid #fff;
-}
-
-.nav-bar__btn_dark:focus {
-  border-bottom: 3px solid #1a1b22;
 }
 
 .nav-bar__signin {

@@ -106,8 +106,14 @@ const App = () => {
               path="/saved-news"
               element={
                 <>
-                  <SavedNewsHeader savedArticles={savedArticles} />
-                  <SavedNews savedArticles={savedArticles} />
+                  <SavedNewsHeader
+                    savedArticles={savedArticles}
+                    isLoggedIn={isLoggedIn}
+                  />
+                  <SavedNews
+                    savedArticles={savedArticles}
+                    setSavedArticles={setSavedArticles}
+                  />
                 </>
               }
             />
@@ -146,12 +152,15 @@ export default App;
   connection issue or the server may be down. Please try again later."
   - adapt the website to fit all screen sizes
   - be sure all images have an alt
-  - get saved article fill to work and get it to render when rendering
   - make sure all btns and comps have a loading effect
-  - make sure signup worksk
+  - make sure signup works
   - fill in currentUser in all locations applicable
   - change signin button to be the signout button upon signing in
+  - block off endpoints
   - if you aren't signed in you can't save an article
-  - get delete to render upon clicking the delete button
-
+  - make sure articles are the updated ones
+  - get tabs to match endpoints (come back to it in navigation)
+  Solution
+  - set up a useState for a variable called focus
+  - within the btn class function attach focus to a new class name
  */

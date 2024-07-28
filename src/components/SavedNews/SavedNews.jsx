@@ -3,8 +3,19 @@ import NewsCard from "../NewsCard/NewsCard";
 import "./SavedNews.css";
 import CardsListContext from "../../contexts/CardsListContext";
 
-const SavedNews = ({ savedArticles }) => {
+const SavedNews = ({ savedArticles, setSavedArticles }) => {
   const { cardsList } = useContext(CardsListContext);
+
+  const handleDeleteClick = (card) => {
+    savedArticles.forEach((article, i) => {
+      if (card.title === article.title) {
+        const newSavedArticles = [...savedArticles];
+        newSavedArticles.splice(i, 1);
+        setSavedArticles(newSavedArticles);
+        card.isSaved = false;
+      }
+    });
+  };
 
   return (
     <section className="saved-news">
@@ -19,7 +30,7 @@ const SavedNews = ({ savedArticles }) => {
                   className="news-card__delete-btn"
                   type="button"
                   onClick={() => {
-                    // handleDelete(card);
+                    handleDeleteClick(card);
                   }}
                 />
                 <p className="news-card__delete-notification">

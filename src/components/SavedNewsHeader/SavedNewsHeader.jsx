@@ -1,7 +1,7 @@
 import Navigation from "../Navigation/Navigation";
 import "./SavedNewsHeader.css";
 
-const SavedNewsHeader = ({ savedArticles }) => {
+const SavedNewsHeader = ({ savedArticles, isLoggedIn }) => {
   const handleKeywords = (articles) => {
     const arr = [];
     articles.forEach((article) => {
@@ -27,7 +27,7 @@ const SavedNewsHeader = ({ savedArticles }) => {
 
   return (
     <header className="saved-news-header">
-      <Navigation color={"dark"} />
+      <Navigation color={"dark"} isLoggedIn={isLoggedIn} />
       <div className="saved-news-header__container">
         <p className="saved-news-header__subtitle">Saved articles</p>
         <h1 className="saved-news-header__title">

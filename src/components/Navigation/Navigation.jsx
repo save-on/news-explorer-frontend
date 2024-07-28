@@ -1,7 +1,16 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "./Navigation.css";
+import { useEffect, useState } from "react";
 
 const Navigation = ({ color, onSignInClick, isLoggedIn }) => {
+  const [focus, setFocus] = useState("");
+
+  let location = useLocation();
+
+  useEffect(() => {
+    setFocus(location.pathname);
+  }, [location]);
+
   return (
     <nav className={`nav-bar nav-bar_${color}`}>
       <Link to="/" className={`nav-bar__logo nav-bar__logo_${color}`}>
@@ -10,7 +19,12 @@ const Navigation = ({ color, onSignInClick, isLoggedIn }) => {
       <ul className="nav-bar__content">
         <li className="nav-bar__home">
           <Link to="/">
-            <button className={`nav-bar__btn nav-bar__btn_${color}`}>
+            <button
+              type="button"
+              className={`nav-bar__btn nav-bar__btn_${color} ${
+                focus === "/" && "nav-bar__btn_home"
+              }`}
+            >
               Home
             </button>
           </Link>
@@ -20,7 +34,9 @@ const Navigation = ({ color, onSignInClick, isLoggedIn }) => {
             <Link to="/saved-news">
               <button
                 type="button"
-                className={`nav-bar__btn nav-bar__btn_${color}`}
+                className={`nav-bar__btn nav-bar__btn_${color} ${
+                  focus === "/saved-news" && "nav-bar__btn_home"
+                }`}
               >
                 Saved articles
               </button>
