@@ -1,8 +1,16 @@
 import { Link, useLocation } from "react-router-dom";
 import "./Navigation.css";
 import { useEffect, useState } from "react";
+import logoutDark from "../../assets/logout.png";
+import logoutLight from "../../assets/logout_light.png";
 
-const Navigation = ({ color, onSignInClick, isLoggedIn }) => {
+const Navigation = ({
+  color,
+  onSignInClick,
+  isLoggedIn,
+  onSignOutClick,
+  currentUser,
+}) => {
   const [focus, setFocus] = useState("");
 
   let location = useLocation();
@@ -43,13 +51,29 @@ const Navigation = ({ color, onSignInClick, isLoggedIn }) => {
             </Link>
           </li>
         ) : null}
-        <li className="nav-bar__signin">
-          <button
-            className={`nav-bar__signin-btn nav-bar__signin-btn_${color}`}
-            onClick={onSignInClick}
-          >
-            Sign in
-          </button>
+        <li className="nav-bar__sign">
+          {!isLoggedIn ? (
+            <button
+              type="button"
+              className={`nav-bar__signin-btn nav-bar__signin-btn_${color}`}
+              onClick={onSignInClick}
+            >
+              Sign in
+            </button>
+          ) : (
+            <button
+              type="button"
+              className={`nav-bar__signout-btn nav-bar__signout-btn_${color}`}
+              onClick={onSignOutClick}
+            >
+              <p className="nav-bar__signout-name">{currentUser.data.name}</p>
+              <img
+                className={`nav-bar__signout-img nav-bar__signout-img_${color}`}
+                src={focus === "/" ? logoutLight : logoutDark}
+                alt="logout"
+              />
+            </button>
+          )}
         </li>
       </ul>
     </nav>
@@ -57,3 +81,6 @@ const Navigation = ({ color, onSignInClick, isLoggedIn }) => {
 };
 
 export default Navigation;
+
+// add in the image next to user
+// be sure it's light and dark

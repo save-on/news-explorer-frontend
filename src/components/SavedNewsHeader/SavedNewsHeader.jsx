@@ -1,7 +1,12 @@
 import Navigation from "../Navigation/Navigation";
 import "./SavedNewsHeader.css";
 
-const SavedNewsHeader = ({ savedArticles, isLoggedIn }) => {
+const SavedNewsHeader = ({
+  savedArticles,
+  isLoggedIn,
+  currentUser,
+  handleSignOutClick,
+}) => {
   const handleKeywords = (articles) => {
     const arr = [];
     articles.forEach((article) => {
@@ -27,11 +32,16 @@ const SavedNewsHeader = ({ savedArticles, isLoggedIn }) => {
 
   return (
     <header className="saved-news-header">
-      <Navigation color={"dark"} isLoggedIn={isLoggedIn} />
+      <Navigation
+        color={"dark"}
+        isLoggedIn={isLoggedIn}
+        currentUser={currentUser}
+        onSignOutClick={handleSignOutClick}
+      />
       <div className="saved-news-header__container">
         <p className="saved-news-header__subtitle">Saved articles</p>
         <h1 className="saved-news-header__title">
-          {`User, ${
+          {`${currentUser.data.name}, ${
             savedArticles.length === 0
               ? "you have no saved articles"
               : `you have ${savedArticles.length} saved articles`

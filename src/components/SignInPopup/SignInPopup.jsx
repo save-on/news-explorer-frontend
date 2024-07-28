@@ -10,6 +10,7 @@ const SignInPopup = ({
   handleSubmit,
   setIsLoggedIn,
   setCurrentUser,
+  isLoading,
 }) => {
   const { values, handleChanges, setValues } = useForm({
     email: "",
@@ -27,8 +28,8 @@ const SignInPopup = ({
     e.preventDefault();
     const makeRequest = () => {
       return authorize(values).then((token) => {
-        checkToken(token).then(({ name, id }) => {
-          setCurrentUser({ name, id });
+        checkToken(token).then((data) => {
+          setCurrentUser(data);
           setIsLoggedIn(true);
           handleReset();
         });
@@ -46,6 +47,8 @@ const SignInPopup = ({
       onCloseClick={closePopup}
       onNavClick={handleSignUpClick}
       onSubmitClick={handleSignIn}
+      isLoading={isLoading}
+      loadingText="Signing in"
     >
       <label htmlFor="signin-email" className="form-popup__input-title">
         email

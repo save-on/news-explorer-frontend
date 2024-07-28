@@ -23,7 +23,7 @@ const App = () => {
     name: "",
     id: "",
   });
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // change back to false
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [savedArticles, setSavedArticles] = useState([]);
 
   useEffect(() => {
@@ -54,8 +54,13 @@ const App = () => {
     setActivePopup("sign-in");
   };
 
+  const handleSignOutClick = () => {
+    setCurrentUser({ name: "", id: "" });
+    setIsLoggedIn(false);
+  };
+
   const handleRegisteredClick = () => {
-    // add this to a successful sign up submit
+    // add to database will go here
     setActivePopup("registered");
   };
 
@@ -86,11 +91,13 @@ const App = () => {
                 <>
                   <Header
                     handleSignInClick={handleSignInClick}
+                    handleSignOutClick={handleSignOutClick}
                     handleSubmit={handleSubmit}
                     setSearchActive={setSearchActive}
                     isLoggedIn={isLoggedIn}
                     currentKeyword={currentKeyword}
                     setCurrentKeyword={setCurrentKeyword}
+                    currentUser={currentUser}
                   />
                   <Main
                     searchActive={searchActive}
@@ -110,6 +117,8 @@ const App = () => {
                   <SavedNewsHeader
                     savedArticles={savedArticles}
                     isLoggedIn={isLoggedIn}
+                    currentUser={currentUser}
+                    handleSignOutClick={handleSignOutClick}
                   />
                   <SavedNews
                     savedArticles={savedArticles}
@@ -129,11 +138,15 @@ const App = () => {
         handleSubmit={handleSubmit}
         setIsLoggedIn={setIsLoggedIn}
         setCurrentUser={setCurrentUser}
+        isLoading={isLoading}
       />
       <SignUpPopup
         activePopup={activePopup}
         closePopup={closePopup}
         handleSignInClick={handleSignInClick}
+        handleRegisteredClick={handleRegisteredClick}
+        handleSubmit={handleSubmit}
+        isLoading={isLoading}
       />
       <SuccessModal
         activePopup={activePopup}
@@ -153,9 +166,5 @@ export default App;
   connection issue or the server may be down. Please try again later."
   - adapt the website to fit all screen sizes
   - be sure all images have an alt
-  - make sure all btns and comps have a loading effect
-  - make sure signup works
-  - fill in currentUser in all locations applicable
-  - change signin button to be the signout button upon signing in
   - make sure articles are the updated ones?
  */

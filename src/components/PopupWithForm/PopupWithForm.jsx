@@ -9,6 +9,8 @@ const PopupWithForm = ({
   onCloseClick,
   onNavClick,
   onSubmitClick,
+  isLoading,
+  loadingText,
 }) => {
   const handleOnClick = (e) => {
     if (e.target.classList.contains("form-popup")) {
@@ -38,7 +40,7 @@ const PopupWithForm = ({
           {children}
           {/* a <p> tag for non avaliable emails */}
           <button type="submit" className="form-popup__submit-btn">
-            {title}
+            {isLoading ? loadingText : title}
           </button>
         </form>
         <p className="form-popup__footer-text">
