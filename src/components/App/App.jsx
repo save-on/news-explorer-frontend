@@ -11,6 +11,7 @@ import SuccessModal from "../SuccessModal/SuccessModal";
 import { useEffect, useState } from "react";
 import CardsListContext from "../../contexts/CardsListContext";
 import { getSearch } from "../../utils/storage";
+import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 
 const App = () => {
   const [activePopup, setActivePopup] = useState("");
@@ -22,7 +23,7 @@ const App = () => {
     name: "",
     id: "",
   });
-  const [isLoggedIn, setIsLoggedIn] = useState(true); // change back to false
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // change back to false
   const [savedArticles, setSavedArticles] = useState([]);
 
   useEffect(() => {
@@ -105,7 +106,7 @@ const App = () => {
             <Route
               path="/saved-news"
               element={
-                <>
+                <ProtectedRoute isLoggedIn={isLoggedIn}>
                   <SavedNewsHeader
                     savedArticles={savedArticles}
                     isLoggedIn={isLoggedIn}
@@ -114,7 +115,7 @@ const App = () => {
                     savedArticles={savedArticles}
                     setSavedArticles={setSavedArticles}
                   />
-                </>
+                </ProtectedRoute>
               }
             />
           </Routes>
@@ -156,11 +157,5 @@ export default App;
   - make sure signup works
   - fill in currentUser in all locations applicable
   - change signin button to be the signout button upon signing in
-  - block off endpoints
-  - if you aren't signed in you can't save an article
-  - make sure articles are the updated ones
-  - get tabs to match endpoints (come back to it in navigation)
-  Solution
-  - set up a useState for a variable called focus
-  - within the btn class function attach focus to a new class name
+  - make sure articles are the updated ones?
  */
