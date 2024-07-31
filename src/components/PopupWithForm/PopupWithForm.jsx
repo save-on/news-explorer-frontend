@@ -38,7 +38,6 @@ const PopupWithForm = ({
           name={nameText}
         >
           {children}
-          {/* a <p> tag for non avaliable emails */}
           <button type="submit" className="form-popup__submit-btn">
             {isLoading ? loadingText : title}
           </button>

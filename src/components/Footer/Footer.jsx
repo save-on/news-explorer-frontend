@@ -18,10 +18,14 @@ const Footer = () => {
           </button>
         </li>
         <li className="footer__info">
-          <img src={gitHub} alt="" className="footer__github" />
+          <img src={gitHub} alt="github link" className="footer__github" />
         </li>
         <li className="footer__info">
-          <img src={faceBook} alt="" className="footer__facebook" />
+          <img
+            src={faceBook}
+            alt="facebook link"
+            className="footer__facebook"
+          />
         </li>
       </ul>
     </footer>

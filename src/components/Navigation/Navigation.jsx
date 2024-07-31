@@ -81,6 +81,3 @@ const Navigation = ({
 };
 
 export default Navigation;
-
-// add in the image next to user
-// be sure it's light and dark
