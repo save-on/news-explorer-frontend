@@ -21,8 +21,8 @@ const Navigation = ({
 
   return (
     <nav className={`nav-bar nav-bar_${color}`}>
-      <Link to="/" className={`nav-bar__logo nav-bar__logo_${color}`}>
-        <p>NewsExplorer</p>
+      <Link to="/" className="nav-bar__logo-container">
+        <p className={`nav-bar__logo nav-bar__logo_${color}`}>NewsExplorer</p>
       </Link>
       <ul className="nav-bar__content">
         <li className="nav-bar__home">
@@ -66,7 +66,7 @@ const Navigation = ({
               className={`nav-bar__signout-btn nav-bar__signout-btn_${color}`}
               onClick={onSignOutClick}
             >
-              <p className="nav-bar__signout-name">{currentUser.data.name}</p>
+              {currentUser.data.name}
               <img
                 className={`nav-bar__signout-img nav-bar__signout-img_${color}`}
                 src={focus === "/" ? logoutLight : logoutDark}

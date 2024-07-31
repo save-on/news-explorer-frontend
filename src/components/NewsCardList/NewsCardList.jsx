@@ -48,9 +48,9 @@ const NewsCardList = ({
         cardsList.length === 0 ? (
           <NoResults />
         ) : (
-          <>
+          <div className="news-card-list__container">
+            <h2 className="news-card-list__title">Search results</h2>
             <ul className="news-card-list__articles">
-              <h2 className="news-card-list__title">Search results</h2>
               {cardsList.slice(0, visibleArticles).map((card) => {
                 handlePrevSaves(card);
                 return (
@@ -85,7 +85,7 @@ const NewsCardList = ({
             >
               Show more
             </button>
-          </>
+          </div>
         )
       ) : null}
     </section>

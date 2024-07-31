@@ -1,15 +1,21 @@
 .about {
   display: flex;
+  align-items: center;
   gap: 56px;
-  padding: 80px 216px 80px 104px;
+  min-height: 624px;
   background-color: #fff;
   justify-content: center;
+  padding: 0 30px;
 }
 
 .about__image {
-  max-width: 464px;
-  min-height: 464px;
+  max-width: 29em;
+  min-height: 29em;
   border-radius: 50%;
+}
+
+.about__text {
+  height: 29em;
 }
 
 .about__title {
@@ -25,4 +31,32 @@
   font-size: 18px;
   margin: 24px 0 0;
   max-width: 600px;
+}
+
+@media screen and (max-width: 768px) {
+  .about {
+    min-height: 354px;
+    gap: 32px;
+    padding: 0 10px;
+  }
+
+  .about__image {
+    min-height: 14.5em;
+    max-width: 14.5em;
+    margin: 21px 0 0;
+  }
+
+  .about__text {
+    height: 14.5em;
+  }
+
+  .about__title {
+    margin: 0;
+    font-size: 30px;
+  }
+
+  .about__description {
+    max-width: 424px;
+    margin: 16px 0 0;
+  }
 }

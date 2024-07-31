@@ -36,3 +36,28 @@
   font-weight: 700;
   margin: 0 0 0 5px;
 }
+
+@media screen and (max-width: 768px) {
+  .saved-news-header {
+    max-width: 768px;
+  }
+
+  .saved-news-header__container {
+    padding: 0 0 0 40px;
+  }
+
+  .saved-news-header__subtitle {
+    font-size: 14px;
+    margin: 24px 0 0;
+  }
+
+  .saved-news-header__title {
+    font-size: 30px;
+    max-width: 336px;
+    margin: 16px 0 0;
+  }
+
+  .saved-news-header__keywords-description {
+    margin: 16px 0 32px 0;
+  }
+}

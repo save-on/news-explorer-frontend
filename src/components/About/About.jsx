@@ -5,7 +5,7 @@ const About = () => {
   return (
     <section className="about">
       <img src={image} alt="" className="about__image" />
-      <div>
+      <div className="about__text">
         <h2 className="about__title">About the author</h2>
         <p className="about__description">
           This block describes the project author. Here you should indicate your

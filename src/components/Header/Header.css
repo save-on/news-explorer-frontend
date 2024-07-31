@@ -6,13 +6,18 @@
   padding: 0 0 88px;
 }
 
+.header__text {
+  min-height: 184px;
+  max-width: 608px;
+  margin: 80px auto 88px;
+}
+
 .header__title {
   font-family: "Roboto Slab", sans-serif;
   font-weight: 400;
   font-size: 60px;
   color: #fff;
-  max-width: 608px;
-  margin: 80px auto 0;
+  margin: 0;
 }
 
 .header__subtitle {
@@ -20,6 +25,24 @@
   font-weight: 400;
   font-size: 18px;
   color: #fff;
-  max-width: 608px;
-  margin: 32px auto 88px;
+  margin: 32px 0 0;
+}
+
+@media screen and (max-width: 768px) {
+  .header {
+    padding: 0 0 48px;
+  }
+  .header__text {
+    max-width: 452px;
+    min-height: 144px;
+    margin: 38px auto 48px;
+  }
+
+  .header__title {
+    font-size: 36px;
+  }
+
+  .header__subtitle {
+    margin: 16px 0 0;
+  }
 }

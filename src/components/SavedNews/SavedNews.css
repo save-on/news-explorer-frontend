@@ -1,6 +1,5 @@
 .saved-news {
-  background-color: #f5f6f7;
-  max-width: 100%;
+  background-color: hsl(210, 11%, 96%);
 }
 
 .saved-news__container {
@@ -18,4 +17,10 @@
   grid-gap: 16px;
   list-style-type: none;
   padding: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .saved-news__articles {
+    grid-template-columns: repeat(auto-fit, 224px);
+  }
 }
