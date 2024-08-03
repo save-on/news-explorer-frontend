@@ -60,3 +60,20 @@
     margin: 16px 0 0;
   }
 }
+
+@media screen and (max-width: 320px) {
+  .about {
+    flex-direction: column;
+  }
+
+  .about__image {
+    min-height: 17em;
+    max-width: 17em;
+    margin: 32px 0 0;
+  }
+
+  .about__text {
+    margin: 0 16px 128px;
+    height: 17em;
+  }
+}

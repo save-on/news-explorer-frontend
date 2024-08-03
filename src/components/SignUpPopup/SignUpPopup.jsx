@@ -1,3 +1,4 @@
+import { useForm } from "../../hooks/useForm";
 import PopupWithForm from "../PopupWithForm/PopupWithForm";
 import "./SignUpPopup";
 
@@ -9,9 +10,24 @@ const SignUpPopup = ({
   handleSubmit,
   isLoading,
 }) => {
+  const { values, handleChanges, setValues } = useForm({
+    email: "",
+    password: "",
+    username: "",
+  });
+
+  const handleReset = () => {
+    setValues({
+      email: "",
+      password: "",
+      username: "",
+    });
+  };
+
   const handleSignUp = (e) => {
     e.preventDefault();
     handleRegisteredClick();
+    handleReset();
     const makeRequest = () => {
       // makeRequest here
     };
@@ -37,6 +53,8 @@ const SignUpPopup = ({
           className="form-popup__input form-popup__input_type_signup-email"
           placeholder="Enter email"
           name="email"
+          value={values.email}
+          onChange={handleChanges}
           required
         />
       </label>
@@ -48,6 +66,8 @@ const SignUpPopup = ({
           className="form-popup__input form-popup__input_type_signup-password"
           placeholder="Enter password"
           name="password"
+          value={values.password}
+          onChange={handleChanges}
           required
         />
       </label>
@@ -59,6 +79,8 @@ const SignUpPopup = ({
           className="form-popup__input form-popup__input_type_signup-username"
           placeholder="Enter your username"
           name="username"
+          value={values.username}
+          onChange={handleChanges}
           required
         />
       </label>

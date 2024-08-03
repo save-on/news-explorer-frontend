@@ -14,7 +14,7 @@ const PopupWithForm = ({
 }) => {
   const handleOnClick = (e) => {
     if (e.target.classList.contains("form-popup")) {
-      onCloseClick("");
+      onCloseClick();
     }
   };
 

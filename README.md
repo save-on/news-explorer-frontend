@@ -1,8 +1,23 @@
-# React + Vite
+# NewsExplorer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### Overview
 
-Currently, two official plugins are available:
+- Functionality
+- Technologies used
+- Live Site
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+**Functionality**
+
+- App searches articles and saves articles for users that's signed in
+- saved articles keeps track of number of articles and keywords used for searching
+- Will soon add a backend and proper error handling
+
+**Technologies Used**
+
+- [Figma](https://www.figma.com)
+- [Vite](https://vitejs.dev)
+- [React]
+
+**Live Site**
+
+- [Site](https://save-on.github.io/se_project_react/)

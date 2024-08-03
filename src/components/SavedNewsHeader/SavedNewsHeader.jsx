@@ -1,3 +1,4 @@
+import MobileMenu from "../MobileMenu/MobileMenu";
 import Navigation from "../Navigation/Navigation";
 import "./SavedNewsHeader.css";
 
@@ -6,6 +7,9 @@ const SavedNewsHeader = ({
   isLoggedIn,
   currentUser,
   handleSignOutClick,
+  handleMobileMenuClick,
+  activePopup,
+  closePopup,
 }) => {
   const handleKeywords = (articles) => {
     const arr = [];
@@ -33,10 +37,19 @@ const SavedNewsHeader = ({
   return (
     <header className="saved-news-header">
       <Navigation
-        color={"dark"}
+        color="dark"
         isLoggedIn={isLoggedIn}
         currentUser={currentUser}
         onSignOutClick={handleSignOutClick}
+        onMobileMenuClick={handleMobileMenuClick}
+      />
+      <MobileMenu
+        color="dark"
+        isLoggedIn={isLoggedIn}
+        onSignOutClick={handleSignOutClick}
+        activePopup={activePopup}
+        closePopup={closePopup}
+        currentUser={currentUser}
       />
       <div className="saved-news-header__container">
         <p className="saved-news-header__subtitle">Saved articles</p>

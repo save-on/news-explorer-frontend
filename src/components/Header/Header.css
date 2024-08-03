@@ -32,6 +32,7 @@
   .header {
     padding: 0 0 48px;
   }
+
   .header__text {
     max-width: 452px;
     min-height: 144px;
@@ -44,5 +45,17 @@
 
   .header__subtitle {
     margin: 16px 0 0;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .header {
+    padding: 0 0 32px;
+  }
+
+  .header__text {
+    max-width: 285px;
+    min-height: 80px;
+    margin: 30px auto 122px;
   }
 }

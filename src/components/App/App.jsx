@@ -2,7 +2,7 @@ import "./App.css";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import Main from "../Main/Main";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import SavedNewsHeader from "../SavedNewsHeader/SavedNewsHeader";
 import SavedNews from "../SavedNews/SavedNews";
 import SignInPopup from "../SignInPopup/SignInPopup";
@@ -25,6 +25,13 @@ const App = () => {
   });
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [savedArticles, setSavedArticles] = useState([]);
+  const [focus, setFocus] = useState("");
+
+  let location = useLocation();
+
+  useEffect(() => {
+    setFocus(location.pathname);
+  }, [location]);
 
   useEffect(() => {
     if (!activePopup) return;
@@ -60,7 +67,6 @@ const App = () => {
   };
 
   const handleRegisteredClick = () => {
-    // add to database will go here
     setActivePopup("registered");
   };
 
@@ -74,6 +80,10 @@ const App = () => {
 
   const handleSignUpClick = () => {
     setActivePopup("sign-up");
+  };
+
+  const handleMobileMenuClick = () => {
+    setActivePopup("mobile-menu");
   };
 
   const closePopup = () => {
@@ -98,6 +108,10 @@ const App = () => {
                     currentKeyword={currentKeyword}
                     setCurrentKeyword={setCurrentKeyword}
                     currentUser={currentUser}
+                    handleMobileMenuClick={handleMobileMenuClick}
+                    activePopup={activePopup}
+                    closePopup={closePopup}
+                    focus={focus}
                   />
                   <Main
                     searchActive={searchActive}
@@ -119,6 +133,9 @@ const App = () => {
                     isLoggedIn={isLoggedIn}
                     currentUser={currentUser}
                     handleSignOutClick={handleSignOutClick}
+                    handleMobileMenuClick={handleMobileMenuClick}
+                    activePopup={activePopup}
+                    closePopup={closePopup}
                   />
                   <SavedNews
                     savedArticles={savedArticles}
@@ -158,11 +175,3 @@ const App = () => {
 };
 
 export default App;
-/*
-  Todo List
-  - if there's an error put the following me
-  message in an error block
-  "Sorry, something went wrong during the request. There may be a 
-  connection issue or the server may be down. Please try again later."
-  - adapt the website to fit all screen sizes
- */

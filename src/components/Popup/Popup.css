@@ -68,3 +68,23 @@
 .popup__nav:hover {
   opacity: 0.8;
 }
+
+@media screen and (max-width: 320px) {
+  .popup__container {
+    width: 320px;
+    padding: 16px;
+  }
+
+  .popup__close-btn {
+    width: 24px;
+    height: 24px;
+    top: -35px;
+    right: 16px;
+    background-position: center;
+    background-size: cover;
+  }
+
+  .popup__title {
+    width: 280px;
+  }
+}

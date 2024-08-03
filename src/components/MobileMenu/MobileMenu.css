@@ -1,0 +1,157 @@
+.mobile-menu__container {
+  display: none;
+}
+
+@media screen and (max-width: 320px) {
+  .mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    visibility: hidden;
+    z-index: 2;
+  }
+
+  .mobile-menu__container {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 230px;
+    z-index: 1;
+  }
+
+  .mobile-menu__logo-container {
+    padding: 0 0 16px;
+  }
+
+  .mobile-menu__logo-container_light {
+    border-bottom: 1px solid #8a89895e;
+  }
+
+  .mobile-menu__logo-container_dark {
+    border-bottom: 1px solid #1a1b22;
+  }
+
+  .mobile-menu__logo {
+    font-family: "Roboto Slab", serif;
+    font-weight: 700;
+    margin: 16px 0 0 16px;
+  }
+
+  .mobile-menu__logo_light {
+    color: #fff;
+  }
+
+  .mobile-menu__logo_dark {
+    color: #1a1b22;
+  }
+
+  .mobile-menu__container_dark {
+    background-color: #fff;
+  }
+
+  .mobile-menu__container_light {
+    background-color: #1a1b22;
+  }
+
+  .mobile-menu_opened {
+    visibility: visible;
+  }
+
+  .mobile-menu__close-btn {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    transition: opacity 0.15s linear 0s;
+    background-color: #1a1b22;
+    z-index: 2;
+  }
+
+  .mobile-menu__close-btn:hover {
+    opacity: 0.8;
+  }
+
+  .mobile-menu__content {
+    position: absolute;
+    list-style-type: none;
+    padding: 0 0 0 5px;
+    bottom: 0;
+  }
+
+  .mobile-menu__btn {
+    background: none;
+    color: #fff;
+    border: none;
+    font-size: 18px;
+    font-family: "Roboto", sans-serif;
+    cursor: pointer;
+    transition: opacity 0.15s linear 0s;
+    margin: 0 0 17px;
+  }
+
+  .mobile-menu__btn_light {
+    color: #fff;
+  }
+
+  .mobile-menu__btn_dark {
+    color: #1a1b22;
+  }
+
+  .mobile-menu__btn:hover {
+    opacity: 0.8;
+  }
+
+  .mobile-menu__signin-btn {
+    background: none;
+    font-size: 18px;
+    font-family: "Roboto", sans-serif;
+    border-radius: 35px;
+    width: 288px;
+    min-height: 56px;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+  }
+
+  .mobile-menu__signin-btn_light {
+    border: 1px solid #fff;
+    color: #fff;
+  }
+
+  .mobile-menu__signout-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: none;
+    font-size: 18px;
+    font-family: "Roboto", sans-serif;
+    border-radius: 35px;
+    width: 288px;
+    min-height: 56px;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+  }
+
+  .mobile-menu__signout-btn_light {
+    color: #fff;
+    border: 1px solid #fff;
+  }
+
+  .mobile-menu__signout-btn_dark {
+    color: #1a1b22;
+    border: 1px solid #1a1b22;
+  }
+
+  .mobile-menu__signout-img {
+    margin: 0 0 0 13px;
+  }
+}
