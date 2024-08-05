@@ -45,10 +45,11 @@
 @media screen and (max-width: 768px) {
   .footer {
     padding: 0 40px;
+    min-height: 64px;
   }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 644px) {
   .footer {
     flex-direction: column-reverse;
     padding: 0 16px;
@@ -63,9 +64,8 @@
   .footer__info-list {
     justify-content: space-between;
     width: 100%;
-    margin: 0 0 38px;
+    margin: 20px 0 38px;
     align-items: start;
-    padding: 20px 0 0;
   }
 
   .footer__links {

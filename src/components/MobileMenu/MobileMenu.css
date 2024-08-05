@@ -2,7 +2,7 @@
   display: none;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 644px) {
   .mobile-menu {
     position: fixed;
     top: 0;
@@ -82,7 +82,8 @@
   .mobile-menu__content {
     position: absolute;
     list-style-type: none;
-    padding: 0 0 0 5px;
+    padding: 0;
+    width: 100%;
     bottom: 0;
   }
 
@@ -110,13 +111,16 @@
   }
 
   .mobile-menu__signin-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background: none;
     font-size: 18px;
     font-family: "Roboto", sans-serif;
     border-radius: 35px;
     width: 288px;
     min-height: 56px;
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
     cursor: pointer;
   }
@@ -136,7 +140,7 @@
     border-radius: 35px;
     width: 288px;
     min-height: 56px;
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
     cursor: pointer;
   }

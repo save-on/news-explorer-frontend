@@ -28,9 +28,9 @@ const SignUpPopup = ({
     e.preventDefault();
     handleRegisteredClick();
     handleReset();
-    const makeRequest = () => {
-      // makeRequest here
-    };
+    // const makeRequest = () => {
+    //   makeRequest here
+    // };
     // handleSubmit(makeRequest);
   };
   return (
