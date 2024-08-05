@@ -1,7 +1,13 @@
+.no-results {
+  display: flex;
+  width: 100%;
+}
+
 .no-results__container {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 0 auto;
 }
 
 .no-results__image {
